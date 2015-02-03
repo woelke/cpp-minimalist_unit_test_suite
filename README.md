@@ -7,47 +7,46 @@ This Unit Test Suite based on the idea of the [Boost Test Library](http://www.bo
 Architecture
 ============
 
-    ut_bootstrap
-    ut_suite
-        ut_minimal 
+    - ut_bootstrap
+    - ut_suite
+        - ut_minimal 
 
-    * ut_bootstrap collects a arbitrary number of test units (a method, which tests a particular functionality of a program) and prepare them for testing.
-    * ut_minimal defines test functions, which can be composed to a test unit. If a whole test suite is not required, the test functions can be used standalone.
-    * ut_suite manages and runs the test process.
+* **ut_bootstrap** collects a arbitrary number of test units (a method, which tests a particular functionality of a program) and prepare them for testing.
+* **ut_minimal** defines test functions, which can be composed to a test unit. If a whole test suite is not required, the test functions can be used standalone.
+* **ut_suite** manages and runs the test process.
 
 
 Test Functions
 ==============
-    * UT_CHECK(expression): verified the expression of correctness, a wrong expression will be exposed
-    * UT_REQUIRE(expression): verified the expression of correctness, a wrong expression will be exposed and leads to abortion of the test unit
-    * UT_ERROR(message): prints an error message
-    * UT_FAIL(message): print an error message and abort the test unit
+* **UT_CHECK(expression)**: verifies the expression of correctness, a wrong expression will be exposed
+* **UT_REQUIRE(expression)**: verifies the expression of correctness, a wrong expression will be exposed and leads to abortion of the test unit
+* **UT_ERROR(message)**: prints an error message
+* **UT_FAIL(message)**: print an error message and abort the test unit
 
 
 How to use this test suite in your program
 ==========================================
-    * Copy the folder testing in to your project.
-    * Past the Macro RUN_UNIT_TESTS_IF_ENABLED (defined in ut_bootstrap.hpp) in your main Function.
-        * If UNIT_TESTS is defined only the test suite will be executed.
-    * Define your own test units (example: test_my_data.hpp).
-    * Collect all test units in ut_bootstrap.hpp.
+* Copy the folder testing in to your project.
+* Past the Macro **RUN_UNIT_TESTS_IF_ENABLED** (defined in [ut_bootstrap.hpp](testing/ut_bootstrap.hpp)) in your main Function.
+    * If **UNIT_TESTS** is defined only the test suite will be executed.
+* Define your own test units (example: [test_my_data.hpp](testing/test_my_data.hpp)).
+* Collect all test units in ut_bootstrap.hpp.
 
 
 Run the example
 ===============
-    * Requirements: qt5-qmake or qt4-qmake
+Requirements: qt5-qmake or qt4-qmake
 
     sudo apt-get install qt5-qmake
     sudo apt-get install qt5-default
-    or
+    #or
     sudo apt-get install qt4-qmake
 
-    * Create makefile and compile
+Create makefile and compile
 
     qmake #without test suite
-    or
+    #or
     qmake DEFINES+=UNIT_TESTS #compiled with test suite
-
+    
     make
-
     ./program
