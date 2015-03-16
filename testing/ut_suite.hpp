@@ -10,13 +10,14 @@
 
 #include "testing/ut_minimal.hpp"
 
+using ut_test_fun = std::function<test_status()>;
+using ut_effort = unsigned int;
+
 class ut_suite
 {
 private:
-    using test_fun = std::function<test_status()>;
-    using effort = unsigned int;
 
-    std::list<std::tuple<test_fun, effort>> m_fun_list;
+    std::list<std::tuple<ut_test_fun, ut_effort>> m_fun_list;
     std::list<test_status> m_test_status_list;
     unsigned int m_abort_counter = 0;
 
@@ -28,15 +29,16 @@ private:
         return result;
     }
 public:
-    void add_test_fun(test_fun tf) {
+
+    void add_test_fun(ut_test_fun tf) {
         add_test_fun(tf, 1);
     }
 
-    void add_test_fun(test_fun tf, effort x) {
+    void add_test_fun(ut_test_fun tf, ut_effort x) {
         m_fun_list.push_back(std::make_tuple(tf, x));
     }
 
-    void add_test_fun(std::list<std::tuple<test_fun, effort>>&& tfl) {
+    void add_test_fun(std::list<std::tuple<ut_test_fun, ut_effort>>&& tfl) {
         m_fun_list.splice(m_fun_list.end(), std::move(tfl));
     }
 

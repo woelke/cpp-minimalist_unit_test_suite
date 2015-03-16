@@ -1,12 +1,11 @@
-#ifndef  TEST_MY_DATA 
-#define  TEST_MY_DATA
+#ifndef  TEST_MY_DATA_HPP
+#define  TEST_MY_DATA_HPP
 
-//#define UNIT_TESTS
 #ifdef UNIT_TESTS
 
 #include "testing/ut_bootstrap.hpp"
 #include "include/my_data.hpp"
-#include <unistd.h>
+#include <unistd.h> //sleep
 
 test_status test_my_data_1()
 {
@@ -84,11 +83,9 @@ test_status test_my_data_4()
     d.set_number(2);
     UT_REQUIRE(d.get_number() == 2);
     UT_REQUIRE(d.get_name().compare("hallo") == 0);
-    
-    //throw 1;
 
     UT_SUMMARY;
 }
 #endif //UNIT_TESTS
 
-#endif //TEST_MY_DATA
+#endif //TEST_MY_DATA_HPP

@@ -8,7 +8,7 @@ int main(int, char**)
 {
     RUN_UNIT_TESTS_IF_ENABLED;
     
-    std::cout << "No tests Today!" << std::endl;
+    std::cout << "No tests Today!" << std::endl; 
 
     return 0;
 }

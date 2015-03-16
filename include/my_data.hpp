@@ -14,6 +14,11 @@ public:
     my_data(int number, const std::string& name)
         : m_number(number)
         , m_name(name) {
+
+        if (number == 42) {
+            throw "42 is not allowed";
+        }
+
     }
 
     int  get_number() const {
@@ -37,6 +42,8 @@ public:
         ss << get_number() <<  "(" << get_number() << ")";
         return ss.str();
     }
+
+    friend class test_my_data_advanced;
 };
 
 
