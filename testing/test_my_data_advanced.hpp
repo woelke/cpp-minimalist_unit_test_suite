@@ -13,7 +13,6 @@
 #include <memory>
 #include <unistd.h> //sleep
 
-
 class test_my_data_advanced
 {
 public:
@@ -30,7 +29,6 @@ public:
             UT_FAIL("(FAIL) Could not create my_data: " << e); //will throw an error
         }
 
-
         // UT_SUMMARY; not necessary
         return std::move(d);
     }
@@ -43,13 +41,9 @@ public:
 
         UT_CHECK(d->m_number == 42); //should not be reachable
 
-
         UT_SUMMARY;
     }
-
-
 };
-
 
 std::list<std::tuple<ut_test_fun, ut_effort>> test_my_data_advanced_functions()
 {
@@ -61,7 +55,6 @@ std::list<std::tuple<ut_test_fun, ut_effort>> test_my_data_advanced_functions()
         }, 1)
     };
 }
-
 
 #endif //UNIT_TESTS
 
