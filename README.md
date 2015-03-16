@@ -29,8 +29,8 @@ How to use this test suite in your program
 * Copy the folder _testing_ in to your project.
 * Past the Macro **RUN_UNIT_TESTS_IF_ENABLED** (defined in [ut_bootstrap.hpp](testing/ut_bootstrap.hpp)) to your main Function.
     * If **UNIT_TESTS** is defined only the test suite will be executed.
-* Define your own test units (example: [test_my_data.hpp](testing/test_my_data.hpp)).
-* Collect all test units in ut_bootstrap.hpp.
+* Define your own test units (example: [test_my_data.hpp](testing/test_my_data.hpp), [test_my_data_advanced.hpp](testing/test_my_data_advanced.hpp)).
+* Collect all test units in [ut_bootstrap.hpp](testing/ut_bootstrap.hpp).
 
 
 Run the example
